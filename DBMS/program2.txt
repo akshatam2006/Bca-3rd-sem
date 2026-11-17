@@ -1,0 +1,37 @@
+
+> CREATE DATABASE employee;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> USE employee;
+Database changed
+mysql> CREATE TABLE employee(
+    -> emp_id INT,
+    -> emp_name VARCHAR(50),
+    -> salary INT
+    -> );
+Query OK, 0 rows affected (0.21 sec)
+
+mysql> ALTER TABLE employee
+    -> ADD department VARCHAR(30);
+Query OK, 0 rows affected (0.64 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee
+    -> MODIFY salary DECIMAL(10,2);
+Query OK, 0 rows affected (0.52 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> RENAME TABLE employee TO staff;
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> TRUNCATE TABLE staff;
+Query OK, 0 rows affected (0.34 sec)
+
+mysql> DROP TABLE staff
+    -> DROP TABLE staff;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE staff' at line 2
+mysql> DROP TABLE staff;
+Query OK, 0 rows affected (0.17 sec)
+
+mysql>
