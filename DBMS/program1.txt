@@ -1,0 +1,131 @@
+ USE college;
+Database changed
+mysql>  CREATE TABLE student1 (
+    ->  ID INT  PRIMARY KEY,
+    ->  name VARCHAR(50),
+    ->  deparment VARCHAR(30),
+    ->  marks INT,
+    ->  city VARCHAR(30)
+    ->      );
+ERROR 1050 (42S01): Table 'student1' already exists
+mysql>  INSERT INTO student1 VALUES
+    -> (1,'Akash','BCA',85,'koppal'),
+    -> (2,'Ravi','BCA',75,'Gangavathi'),
+    -> (3,'Priya','BCom',90,'koppal'),
+    -> (4,'Manoj','BCA',60,'yaburga'),
+    -> (5,'Anu','BCom',80,'koappal'),
+    -> (6,'Kiran','BCA',95,'Gangavathi');
+ERROR 1062 (23000): Duplicate entry '1' for key 'student1.PRIMARY'
+mysql>
+mysql> SELECT * FROM student1;
++----+-------+-----------+-------+------------+
+| ID | name  | deparment | marks | city       |
++----+-------+-----------+-------+------------+
+|  1 | Akash | BCA       |    85 | koppal     |
+|  2 | Ravi  | BCA       |    75 | Gangavathi |
+|  3 | Priya | BCom      |    90 | koppal     |
+|  4 | Manoj | BCA       |    60 | yaburga    |
+|  5 | Anu   | BCom      |    80 | koappal    |
+|  6 | Kiran | BCA       |    95 | Gangavathi |
++----+-------+-----------+-------+------------+
+ SELECT UPPER(name)FROM student1;
++-------------+
+| UPPER(name) |
++-------------+
+| AKASH       |
+| RAVI        |
+| PRIYA       |
+| MANOJ       |
+| ANU         |
+| KIRAN       |
++-------------+
+6 rows in set (0.01 sec
+mysql> SELECT LOWER(name)FROM student1;
++-------------+
+| LOWER(name) |
++-------------+
+| akash       |
+| ravi        |
+| priya       |
+| manoj       |
+| anu         |
+| kiran       |
++-------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT name,LENGTH(name)FROM student1;
++-------+--------------+
+| name  | LENGTH(name) |
++-------+--------------+
+| Akash |            5 |
+| Ravi  |            4 |
+| Priya |            5 |
+| Manoj |            5 |
+| Anu   |            3 |
+| Kiran |            5 |
++-------+--------------+
+6 rows in set (0.01 sec)
+
+mysql> SELECT ROUND(85.678,2);
++-----------------+
+| ROUND(85.678,2) |
++-----------------+
+|           85.68 |
++-----------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT NOW();
++---------------------+
+| NOW()               |
++---------------------+
+| 2026-11-07 10:51:46 |
++---------------------+
+1 row in set (0.02 sec)
+
+mysql> SELECT COUNT(*)FROM student;
++----------+
+| COUNT(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.10 sec)
+
+mysql> SELECT COUNT(*)FROM student1;
++----------+
+| COUNT(*) |
++----------+
+|        6 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT SUM(marks)FROM student1;
++------------+
+| SUM(marks) |
++------------+
+|        485 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT AVG(marks)FROM student1;
++------------+
+| AVG(marks) |
++------------+
+|    80.8333 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT MAX(marks)FROM student1;
++------------+
+| MAX(marks) |
++------------+
+|         95 |
++------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT MIN(marks)FROM student1;
++------------+
+| MIN(marks) |
++------------+
+|         60 |
++------------+
+1 row in set (0.00 sec)
