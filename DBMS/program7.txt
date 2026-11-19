@@ -1,0 +1,46 @@
+
+mysql> CREATE VIEW bca_student1 AS
+    -> SELECT id,name,marks
+    -> FROM student1
+    -> WHERE department='BCA';
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> SELECT * FROM bca_students1;
+ERROR 1146 (42S02): Table 'college.bca_students1' doesn't exist
+mysql> SELECT * FROM bca_student1;
++----+-------+-------+
+| id | name  | marks |
++----+-------+-------+
+|  1 | Akash |    85 |
+|  2 | Ravi  |    75 |
+|  4 | Manoj |    60 |
+|  6 | Kiran |    95 |
++----+-------+-------+
+4 rows in set (0.03 sec)
+
+mysql> CREATE VIEW high_marks AS
+    -> SELECT id,name,marks
+    -> FROM student1
+    -> WHERE marks>80;
+Query OK, 0 rows affected (0.10 sec)
+
+mysql>
+mysql> SELECT*FROM high_marks;
++----+-------+-------+
+| id | name  | marks |
++----+-------+-------+
+|  1 | Akash |    85 |
+|  3 | Priya |    90 |
+|  6 | Kiran |    95 |
++----+-------+-------+
+3 rows in set (0.00 sec)
+
+mysql> CREATE OR REPLACE VIEW bca_student1 AS
+    -> SELECT id, name, marks, city
+    -> FROM student1
+    -> WHERE department='BCA';
+Query OK, 0 rows affected (0.08 sec)
+
+mysql>
+mysql> DROP VIEW bca_student1;
+Query OK, 0 rows affected (0.08 sec)
