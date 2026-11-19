@@ -1,0 +1,113 @@
+SELECT student1.name,
+    ->        student1.department,
+    ->        department.location
+    -> FROM student1
+    -> INNER JOIN department
+    -> ON student1.department = department.department;
++-------+------------+----------+
+| name  | department | location |
++-------+------------+----------+
+| Akash | BCA        | Block A  |
+| Ravi  | BCA        | Block A  |
+| Priya | BCom       | Block B  |
+| Manoj | BCA        | Block A  |
+| Anu   | BCom       | Block B  |
+| Kiran | BCA        | Block A  |
++-------+------------+----------+
+6 rows in set (0.12 sec)
+
+mysql> SELECT  student1.name,
+    -> department.location
+    -> FROM student1
+    -> LEFT JOIN department
+    -> ON student1.department=department.department;
++-------+----------+
+| name  | location |
++-------+----------+
+| Akash | Block A  |
+| Ravi  | Block A  |
+| Priya | Block B  |
+| Manoj | Block A  |
+| Anu   | Block B  |
+| Kiran | Block A  |
++-------+----------+
+6 rows in set (0.01 sec)
+
+mysql> SELECT  student1.name,
+    -> department.department
+    -> FROM student1
+    -> RIGHT JOIN department
+    -> ON student1.department=department.department;
++-------+------------+
+| name  | department |
++-------+------------+
+| Kiran | BCA        |
+| Manoj | BCA        |
+| Ravi  | BCA        |
+| Akash | BCA        |
+| Anu   | Bcom       |
+| Priya | Bcom       |
+| NULL  | BBA        |
++-------+------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT student.name,
+    -> department.department
+    -> FROM student
+    -> CROSS JOIN department;
+ERROR 1054 (42S22): Unknown column 'student.name' in 'field list'
+mysql> SELECT  student1.name,
+    -> department.department
+    -> FROM student1
+    -> CROSS JOIN department;
++-------+------------+
+| name  | department |
++-------+------------+
+| Akash | BBA        |
+| Akash | Bcom       |
+| Akash | BCA        |
+| Ravi  | BBA        |
+| Ravi  | Bcom       |
+| Ravi  | BCA        |
+| Priya | BBA        |
+| Priya | Bcom       |
+| Priya | BCA        |
+| Manoj | BBA        |
+| Manoj | Bcom       |
+| Manoj | BCA        |
+| Anu   | BBA        |
+| Anu   | Bcom       |
+| Anu   | BCA        |
+| Kiran | BBA        |
+| Kiran | Bcom       |
+| Kiran | BCA        |
++-------+------------+
+18 rows in set (0.00 sec)
+
+mysql> SELECT  student1.name,
+    -> department.department
+    -> FROM student1
+    -> CROSS JOIN department;
++-------+------------+
+| name  | department |
++-------+------------+
+| Akash | BBA        |
+| Akash | Bcom       |
+| Akash | BCA        |
+| Ravi  | BBA        |
+| Ravi  | Bcom       |
+| Ravi  | BCA        |
+| Priya | BBA        |
+| Priya | Bcom       |
+| Priya | BCA        |
+| Manoj | BBA        |
+| Manoj | Bcom       |
+| Manoj | BCA        |
+| Anu   | BBA        |
+| Anu   | Bcom       |
+| Anu   | BCA        |
+| Kiran | BBA        |
+| Kiran | Bcom       |
+| Kiran | BCA        |
++-------+------------+
+18 rows in set (0.00 sec)
